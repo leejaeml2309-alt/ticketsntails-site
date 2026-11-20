@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tickets &amp; Tails</title>
+    <link>https://ticketsntails.com/</link>
+    <description>A travel journal for dogs and cats. Notes on airlines, trains and taxis, hotels, destinations, nutrition and gear, and travel after adoption.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 20 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ticketsntails.com/feed.xml" rel="self" type="application/rss+xml"/>
+  </channel>
+</rss>
