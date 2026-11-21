@@ -90,12 +90,26 @@
   var lastFocus = null;
   var settingsOpen = false;
 
+  var padObserver = null;
+
+  function bannerHeight() {
+    if (!bannerRoot || bannerRoot.hidden) return 0;
+    return Math.ceil(bannerRoot.getBoundingClientRect().height);
+  }
+
   function syncPad() {
     if (!bannerRoot || bannerRoot.hidden) {
       document.body.style.paddingBottom = "";
       return;
     }
-    document.body.style.paddingBottom = bannerRoot.offsetHeight + "px";
+    document.body.style.paddingBottom = bannerHeight() + "px";
+  }
+
+  function watchPad() {
+    syncPad();
+    if (padObserver || typeof ResizeObserver === "undefined" || !bannerRoot) return;
+    padObserver = new ResizeObserver(syncPad);
+    padObserver.observe(bannerRoot);
   }
 
   function hideBanner() {
@@ -116,7 +130,7 @@
     if (openSettings) openSettingsPanel(true);
     var focusable = bannerRoot.querySelector(openSettings ? "#cookie-save" : "#cookie-accept");
     if (focusable) focusable.focus();
-    syncPad();
+    watchPad();
   }
 
   function openSettingsPanel(visible) {
@@ -129,7 +143,7 @@
       else panel.setAttribute("hidden", "");
     }
     if (btn) btn.setAttribute("aria-expanded", visible ? "true" : "false");
-    syncPad();
+    watchPad();
   }
 
   function currentSettingsFromForm() {
