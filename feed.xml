@@ -3,9 +3,37 @@
   <channel>
     <title>Tickets &amp; Tails</title>
     <link>https://ticketsntails.com/</link>
-    <description>A travel journal for dogs and cats. Notes on airlines, trains and taxis, hotels, destinations, nutrition and gear, and travel after adoption.</description>
+    <description>A travel journal for dogs and cats.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 20 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ticketsntails.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Meet Future, Lili and Lilou</title>
+      <link>https://ticketsntails.com/the-road-book/meet-future-lili-and-lilou/</link>
+      <guid>https://ticketsntails.com/the-road-book/meet-future-lili-and-lilou/</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Lili and Lilou, cats born in July 2016 who came from a pet shop in the Paris region to Korea, and Future, a Shih Tzu adopted in Daegu in 2024. The family is planning a move from Korea to Texas.</description>
+    </item>
+    <item>
+      <title>Six-Foot Leash, Closed Trails</title>
+      <link>https://ticketsntails.com/camping-with-your-dog/six-foot-leash-closed-trails/</link>
+      <guid>https://ticketsntails.com/camping-with-your-dog/six-foot-leash-closed-trails/</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Official U.S. National Park Service and Texas State Parks rules for camping with a dog, including the six-foot leash and trails that stay closed to pets.</description>
+    </item>
+    <item>
+      <title>Korea-to-U.S. Pet Move Checklist</title>
+      <link>https://ticketsntails.com/printable-checklists/korea-to-us-pet-move-checklist/</link>
+      <guid>https://ticketsntails.com/printable-checklists/korea-to-us-pet-move-checklist/</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
+      <description>A printable checklist for moving a dog and cats from South Korea to the United States, drawn from CDC, USDA APHIS and Korea’s APQA official pages.</description>
+    </item>
+    <item>
+      <title>Flying Dogs and Cats on the Same Itinerary</title>
+      <link>https://ticketsntails.com/two-species-one-itinerary/flying-dogs-and-cats-on-the-same-itinerary/</link>
+      <guid>https://ticketsntails.com/two-species-one-itinerary/flying-dogs-and-cats-on-the-same-itinerary/</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Official differences that matter when a dog and cats fly on the same itinerary, from CDC import rules, USDA APHIS, the FAA and the U.S. Department of Transportation.</description>
+    </item>
   </channel>
 </rss>
