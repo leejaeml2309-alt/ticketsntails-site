@@ -3,10 +3,17 @@
   <channel>
     <title>Tickets &amp; Tails</title>
     <link>https://ticketsntails.com/</link>
-    <description>A travel journal for dogs and cats.</description>
+    <description>Life &amp; Travel with Cats and Dogs.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 21 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ticketsntails.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Lili’s Itchy Face: Dry Skin, Stress and What Goes in the Bowl</title>
+      <link>https://ticketsntails.com/everyday-life/lili-itchy-face-dry-skin-stress-and-the-bowl/</link>
+      <guid>https://ticketsntails.com/everyday-life/lili-itchy-face-dry-skin-stress-and-the-bowl/</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Lili, a ten-year-old tortoiseshell, keeps scratching her face. What veterinary sources say about itch, dry skin, stress and fish — and why natto, goat’s milk and yogurt stayed out of her bowl.</description>
+    </item>
     <item>
       <title>Meet Future, Lili and Lilou</title>
       <link>https://ticketsntails.com/the-road-book/meet-future-lili-and-lilou/</link>
