@@ -18,17 +18,17 @@ GitHub Pages cannot send HTTP 301. Each old Tickets & Tails URL is a stub page (
 
 | Old URL | Points to now (live, HTTP 200 on 28 Nov 2026) | Retarget to |
 | --- | --- | --- |
-| /camping-with-your-dog/ | https://pawpartout.com/camping/ | the Pawpartout camping article URL (Marc 14:31 KST) |
-| /camping-with-your-dog/six-foot-leash-closed-trails/ | https://pawpartout.com/camping/ | the Pawpartout camping article URL |
-| /outdoors/ | https://pawpartout.com/camping/ | the Pawpartout camping article URL |
 | /printable-checklists/ | https://petpolicycheck.com/pet-travel-checklist/ | https://petpolicycheck.com/countries/south-korea.html#leaving-korea-export (final, when live) |
 | /printable-checklists/korea-to-us-pet-move-checklist/ | https://petpolicycheck.com/pet-travel-checklist/ | https://petpolicycheck.com/countries/south-korea.html#leaving-korea-export (final, when live) |
 | /two-species-one-itinerary/ | https://petpolicycheck.com/field-guides/ | https://petpolicycheck.com/countries/usa.html#federal (final, when live) |
 | /two-species-one-itinerary/flying-dogs-and-cats-on-the-same-itinerary/ | https://petpolicycheck.com/field-guides/ | https://petpolicycheck.com/countries/usa.html#federal (final, when live) |
 | /drafts/what-to-check-before-you-fly/ | https://petpolicycheck.com/field-guides/ | https://petpolicycheck.com/countries/usa.html#federal (final, when live) |
 
-The original texts of the checklist, the two-species article and the camping article are in git history
-(`main` at 2096f81) and must be ported to their new homes before the stubs are retargeted.
+Camping retarget done (28 Nov 2026): `/camping-with-your-dog/`, its article and `/outdoors/` now point to
+https://pawpartout.com/camping/six-foot-leash-closed-trails/ (HTTP 200 live).
+
+The original texts of the checklist and the two-species article are in git history
+(`main` at 2096f81) and must be ported to their new homes before those stubs are retargeted.
 
 ## Local preview
 
