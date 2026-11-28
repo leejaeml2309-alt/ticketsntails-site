@@ -6,7 +6,7 @@ Since 28 November 2026 this domain hosts Pawpartout's journal: **Life Design** (
 Tickets & Tails no longer exists as a separate travel blog; its old URLs are redirect stubs.
 
 - No ads. Google Analytics `G-K45B2WNXMC` is the only tag.
-- The 3D Studio (`/studio/`) uses a vendored three.js r187 (`/studio/vendor/`), no CDN.
+- The public `/studio/` page is a Coming soon placeholder. The 3D Studio code lives on the `studio-3d-dev-20261128` branch (vendored three.js r187, no CDN).
 - Never `git push --force`, never `--no-verify`. Publish only after Marc's OK.
 
 ## Redirects

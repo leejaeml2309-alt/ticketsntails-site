@@ -47,3 +47,10 @@
 .jl-article .jl-frame.tnt-lino{max-width:760px}
 @media (max-width:720px){.tnt-title{font-size:1.9rem}.tnt-title .tnt-t2{font-size:.8em}}
 .jl-legal-foot .legal{justify-content:center}
+
+/* coming soon — /studio/ */
+.tnt-soon{text-align:center;max-width:40rem;margin:0 auto}
+.tnt-soon .tnt-title{margin-bottom:18px}
+.tnt-soon-lead{margin:0 auto 28px;max-width:36rem;font:400 1.08rem/1.55 var(--jl-sans,"Inter",system-ui,sans-serif);color:#cfd4df}
+.tnt-soon-actions{margin:0;display:flex;justify-content:center}
+.tnt-soon-actions .pp-btn{box-sizing:border-box}
