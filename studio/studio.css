@@ -443,7 +443,14 @@ body.studio-app{
   .st-layers{order:2;margin:0 0 10px;width:auto;max-height:none;height:auto;position:static;background:transparent;box-shadow:none}
   #st-primary{order:3;margin:0 0 8px}
   .st-stage-frame{margin:0 0 10px}
-  .st-stage{height:min(34vh, 250px);min-height:200px}
+  .st-stage{
+    /* Most of the mobile viewport for the 3D view and the 2D plan.
+       svh keeps the stage inside the visible area when browser chrome is up;
+       dvh (when supported) grows the stage as the chrome hides. */
+    height:72svh;
+    height:72dvh;
+    min-height:280px;
+  }
   .st-hero{padding:2px 0 0}
   .st-hero h1{font-size:1.7rem;margin-bottom:4px}
   .st-deck{font-size:0.92rem;margin-bottom:0}
@@ -644,4 +651,13 @@ body.studio-app{
   }
   .st-narrow-banner-close:hover{border-color:var(--st-gold);color:var(--st-gold-hi)}
   .st-narrow-banner-close:focus-visible{outline:2px solid var(--st-gold);outline-offset:2px}
+}
+
+/* Mobile tap targets — must follow the base .st-layer / .st-ico / .st-layer-rot rules. */
+@media (max-width:800px){
+  .st-viewbar .st-btn{height:44px;min-height:44px}
+  .st-layer{height:44px;min-height:44px}
+  .st-layer-rot .st-btn,
+  .st-layer-tools .st-btn#st-reset-pos{height:44px;min-height:44px}
+  .st-ico{width:44px;height:44px;min-width:44px;min-height:44px}
 }

@@ -611,6 +611,53 @@ function addBox(parent, mat, w,h,d, x,y,z, opt={}) {
   parent.add(m);
   return m;
 }
+
+/* Invisible volume for thin floor-hugging meshes (rug, mats, beds, pads).
+   A 2–3 cm slab is easy for a click or touch ray to miss, especially from a
+   glancing orbit or on a short mobile canvas. Proxies are ignoreBounds so
+   clamp / snap / default placement stay unchanged. Floor and walls are not
+   furniture, so they never receive a proxy and stay out of pickFurniture. */
+const PICK_PROXY_THICK = 0.06;
+const PICK_THIN_H = 0.12;
+const PICK_MIN_FOOT = 0.2;
+
+function addPickProxyForMesh(mesh) {
+  const parent = mesh.parent;
+  if (!parent || mesh.userData.pickProxy) return null;
+  mesh.geometry.computeBoundingBox();
+  const size = mesh.geometry.boundingBox.getSize(new THREE.Vector3()).multiply(mesh.scale);
+  const mat = new THREE.MeshBasicMaterial({
+    visible: false,
+    transparent: true,
+    opacity: 0,
+    depthWrite: false,
+    side: THREE.DoubleSide,
+  });
+  const proxy = new THREE.Mesh(new THREE.BoxGeometry(size.x, PICK_PROXY_THICK, size.z), mat);
+  proxy.position.copy(mesh.position);
+  proxy.position.y = Math.max(mesh.position.y, PICK_PROXY_THICK / 2);
+  proxy.rotation.copy(mesh.rotation);
+  proxy.castShadow = false;
+  proxy.receiveShadow = false;
+  proxy.userData.pickProxy = true;
+  proxy.userData.ignoreBounds = true;
+  parent.add(proxy);
+  return proxy;
+}
+
+function ensurePickProxies(root) {
+  const thin = [];
+  root.traverse((o) => {
+    if (!o.isMesh || o.userData.pickProxy || !o.geometry) return;
+    o.geometry.computeBoundingBox();
+    const size = o.geometry.boundingBox.getSize(new THREE.Vector3()).multiply(o.scale);
+    const world = new THREE.Box3().setFromObject(o);
+    const h = Math.min(size.y, world.max.y - world.min.y);
+    const foot = Math.max(world.max.x - world.min.x, world.max.z - world.min.z);
+    if (h <= PICK_THIN_H && foot >= PICK_MIN_FOOT) thin.push(o);
+  });
+  thin.forEach(addPickProxyForMesh);
+}
 function addCyl(parent, mat, rTop, rBot, h, x,y,z, opt={}) {
   const m = new THREE.Mesh(new THREE.CylinderGeometry(rTop, rBot, h, opt.seg || 24), mat);
   m.position.set(x,y,z);
@@ -1223,7 +1270,7 @@ function rebuild() {
   if (state.elements.dining.on) addDining(furnRoot, isGarden);
   if (state.elements.litter.on) addLitter(furnRoot, isGarden);
   if (state.elements.sofa.on) addSofa(furnRoot, isGarden);
-  allFurn().forEach((g) => applyPose(g, false));
+  allFurn().forEach((g) => { ensurePickProxies(g); applyPose(g, false); });
   placeLights();
   applyView(state.view === 'reset' ? 'perspective' : state.view);
   updateReadouts();
@@ -1466,12 +1513,15 @@ function closeBrief() {
 
 /* ---------- init ---------- */
 
-function aabbOf(obj) {
+function aabbOf(obj, opts) {
+  const forPick = !!(opts && opts.forPick);
   obj.updateWorldMatrix(true, true);
   const box = new THREE.Box3();
   let found = false;
   obj.traverse((child) => {
-    if (!child.isMesh || child.userData.ignoreBounds) return;
+    if (!child.isMesh) return;
+    if (child.userData.pickProxy) return;
+    if (child.userData.ignoreBounds && !forPick) return;
     const b = new THREE.Box3().setFromObject(child);
     if (!found) { box.copy(b); found = true; }
     else box.union(b);
@@ -1738,7 +1788,9 @@ function pickFurniture(clientX, clientY) {
   });
   const hits = raycaster.intersectObjects(meshes, false);
   if (!hits.length) return null;
-  let obj = hits[0].object;
+  const nearest = hits[0].distance;
+  const preferred = hits.find((h) => h.object.userData.pickProxy && h.distance <= nearest + 0.02) || hits[0];
+  let obj = preferred.object;
   while (obj && obj.userData.role !== 'furniture') obj = obj.parent;
   return obj || null;
 }
@@ -1818,7 +1870,7 @@ function updateSelectionVisual() {
   const obj = selectedObj && selectedObj.visible ? selectedObj : null;
   if (!obj || !scene) return;
   obj.updateWorldMatrix(true, true);
-  const b = aabbOf(obj);
+  const b = aabbOf(obj, { forPick: true });
   const cx = (b.min.x + b.max.x) / 2;
   const cz = (b.min.z + b.max.z) / 2;
   const rx = (b.max.x - b.min.x) / 2 + 0.07;
@@ -1997,7 +2049,7 @@ function updatePlanOverlay() {
   allFurn().forEach((obj) => {
     if (!obj.visible) return;
     obj.updateWorldMatrix(true, true);
-    const b = aabbOf(obj);
+    const b = aabbOf(obj, { forPick: true });
     const p1 = worldToOverlay(b.min.x, b.min.z);
     const p2 = worldToOverlay(b.max.x, b.min.z);
     const p3 = worldToOverlay(b.max.x, b.max.z);
