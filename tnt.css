@@ -46,3 +46,4 @@
  color:var(--jl-gold-hi,#f3d98f);font:600 .8rem/1 var(--jl-sans,"Inter",sans-serif);letter-spacing:.12em;cursor:pointer}
 .jl-article .jl-frame.tnt-lino{max-width:760px}
 @media (max-width:720px){.tnt-title{font-size:1.9rem}.tnt-title .tnt-t2{font-size:.8em}}
+.jl-legal-foot .legal{justify-content:center}
