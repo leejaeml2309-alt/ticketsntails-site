@@ -1,0 +1,13 @@
+{
+  "name": "Pawpartout · Life Design & Legacy",
+  "short_name": "Life Design & Legacy",
+  "description": "Life Design: design dossiers and the 3D Pet-Interior Studio. Legacy: The Great Book and The Designer's Craft.",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#071330",
+  "background_color": "#050d26",
+  "display": "browser",
+  "start_url": "/"
+}

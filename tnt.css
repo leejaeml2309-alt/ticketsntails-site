@@ -1,0 +1,48 @@
+/* ticketsntails.com · Pawpartout Life Design & Legacy — small additions to pp.css + blog.css (2026-11-28) */
+.tnt-pp-link{margin-left:auto;display:inline-flex;align-items:center;min-height:44px;padding:0 4px;
+ font:500 .74rem/1 var(--jl-sans,"Inter",system-ui,sans-serif);letter-spacing:.16em;text-transform:uppercase;
+ color:#9aa3b8;text-decoration:none}
+.tnt-pp-link:hover,.tnt-pp-link:focus-visible{color:var(--jl-gold-hi,#f3d98f)}
+
+/* home title */
+.tnt-title{margin:0 0 6px;text-align:center;font-family:var(--jl-serif,"Bodoni Moda",serif);font-weight:900;
+ font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.08;letter-spacing:.04em;color:var(--jl-ivory,#f4ecd8)}
+.tnt-title .tnt-dot{color:var(--jl-gold,#d4af63)}
+.tnt-title .tnt-t2{font-style:italic;font-weight:700}
+.tnt-domain{margin:0 0 30px;text-align:center;font:500 .72rem/1.4 var(--jl-sans,"Inter",sans-serif);
+ letter-spacing:.2em;text-transform:lowercase;color:#7f889c}
+@media (max-width:720px){
+ .tnt-title .tnt-t1,.tnt-title .tnt-t2{display:block}
+ .tnt-title .tnt-dot{display:none}
+ .tnt-title{font-size:2.1rem}
+ .tnt-domain{margin-bottom:22px}
+}
+
+/* life stories */
+.tnt-story h1{max-width:22ch}
+.tnt-meta{margin:0 0 26px;font:500 .78rem/1.4 var(--jl-sans,"Inter",sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--jl-muted,#8f98ab)}
+.jl-article .jl-frame.tnt-lino img{aspect-ratio:4/3;object-fit:contain;background:#f1e9d6;height:auto}
+.tnt-lino figcaption{padding:12px 4px 0;font-size:.88rem;line-height:1.5;color:var(--jl-muted,#8f98ab);font-style:italic}
+.tnt-story .jl-prose{max-width:72ch}
+.tnt-story .lede{font-size:1.22rem;line-height:1.6;color:var(--jl-ivory,#f4ecd8)}
+.tnt-story .jl-prose ul,.tnt-story .jl-prose ol{margin:0 0 1.2em;padding-left:1.3em;color:var(--jl-body);line-height:1.7}
+.tnt-story .jl-prose li{margin:0 0 .5em;overflow-wrap:anywhere}
+.tnt-story .jl-prose a{color:var(--jl-gold-hi,#f3d98f);overflow-wrap:anywhere}
+.tnt-story .ppc-pointer{padding:14px 16px;border-left:2px solid var(--jl-gold,#d4af63);background:rgba(212,175,99,.06)}
+.tnt-story .disclaimer{font-size:.9rem;color:var(--jl-muted,#8f98ab)}
+.tnt-story .sources{margin-top:28px;padding-top:18px;border-top:1px solid rgba(212,175,99,.25)}
+.tnt-story .sources li{font-size:.92rem}
+.tnt-story .verified{display:inline-block;margin-left:6px;font-size:.78rem;color:var(--jl-muted,#8f98ab)}
+
+/* fine print pages */
+.tnt-fine .pp-prose a{overflow-wrap:anywhere}
+
+/* analytics-only cookie notice */
+.tnt-cookie{position:fixed;z-index:50;left:12px;right:12px;bottom:12px;margin:0 auto;max-width:560px;box-sizing:border-box;
+ display:flex;align-items:center;gap:14px;padding:12px 14px 12px 18px;background:#0a1430f2;border:1px solid rgba(212,175,99,.45);
+ color:#d7dceb;font:400 .86rem/1.45 var(--jl-sans,"Inter",sans-serif);box-shadow:0 10px 30px #0008}
+.tnt-cookie p{margin:0;flex:1;min-width:0}
+.tnt-cookie button{flex:none;min-height:40px;min-width:56px;padding:0 14px;border:1px solid var(--jl-gold,#d4af63);background:transparent;
+ color:var(--jl-gold-hi,#f3d98f);font:600 .8rem/1 var(--jl-sans,"Inter",sans-serif);letter-spacing:.12em;cursor:pointer}
+.jl-article .jl-frame.tnt-lino{max-width:760px}
+@media (max-width:720px){.tnt-title{font-size:1.9rem}.tnt-title .tnt-t2{font-size:.8em}}
